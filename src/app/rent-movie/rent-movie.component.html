@@ -1,0 +1,36 @@
+<div class="container mt-4 mb-5">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 style="text-align: center;">Vuoi noleggiare un film?</h2>
+      <p style="text-align: center;">Scopri il prezzo in euro e in dollari!</p>
+    </div>
+  </div>
+</div>
+<div class="container mt-4 mb-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1>{{title | titlecase}}</h1>
+      <div class="mb-3" style="max-width: 50%;">
+        <label for="quantity" class="form-label">Quantity</label>
+        <input type="number" class="form-control" id="moviequantity" placeholder="0" min="0" max="100" step="1"
+          name="moviequantity" [(ngModel)]="quantity" #moviequantity (change)="calculate(moviequantity.value)">
+        <p>Price for single movie: {{price | currency:'EUR'}}</p>
+        <p>Price for single movie: {{price2 | currency:'USD'}}</p>
+      </div>
+    </div>
+      <div class="col-lg-4">
+        <div>
+          <h3>Quantity:</h3>
+          <p>{{ quantity }}</p>
+          <h3>Total price in USD:</h3>
+          <p>{{total2 | currency:'USD'}}</p>
+          <h3>Total price in EURO:</h3>
+          <p>{{total | currency:'EUR'}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+

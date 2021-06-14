@@ -1,0 +1,44 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-8">
+            <a href="http://localhost:4200/">Go Back</a> <br>
+            <h1>Edit: {{movie.title}}</h1>
+            <form name='editform' novalidate id='editform' #editform='ngForm' (ngSubmit)='update()'>
+                <div class='row'>
+                    <div class='col-lg-4'>
+                        <!--TITOLO-->
+                        <label for='title'>Titolo: </label>
+                        <input type='text' id='title' #title='ngModel' class='form-control' name='title'
+                            [(ngModel)]='mymovie.title' required>
+                        <div class='alert alert-danger' [hidden]='title.valid'> The title is required!</div>
+
+                        <!--PLOT-->
+                        <label for='plot'>Plot: </label>
+                        <input type='text' id='plot' #plot='ngModel' class='form-control' name='plot'
+                            [(ngModel)]='mymovie.plot' required>
+                        <div class='alert alert-danger' [hidden]='plot.valid'> The plot is required!</div>
+
+                        <!--CAST-->
+                        <label for='cast'>Cast: </label>
+                        <input type='text' id='cast' #cast='ngModel' class='form-control' name='cast'
+                            [(ngModel)]='mymovie.cast' required>
+                        <div class='alert alert-danger' [hidden]='cast.valid'> The cast is required!</div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-lg-4 mt-3'>
+                        <button type='submit' class='btn btn-success' [disabled]='editform.invalid'>Save</button>
+                        <button type='button' class='btn btn-success' (click)='resetMovie()'>Reset</button>
+                    </div>
+                </div>
+            </form>
+
+            <pre>{{movie | json}}</pre>
+
+            <pre>{{mymovie | json}}</pre>
+        </div>
+        <div class="col-lg-4">
+            <img src="{{movie.image}}" class="card-img-top" alt="...">
+        </div>
+    </div>
+</div>

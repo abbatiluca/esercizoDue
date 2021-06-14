@@ -1,0 +1,65 @@
+<!-- ### HEADER ### -->
+<nav class="navbar navbar-expand-lg navbar-dark site-header sticky-top py-1" style="background-color: #14003f;">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="navbar-brand" href="http://localhost:4200/">Epic Films</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="cambia('list')">Film</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="cambia('rent')">Noleggia</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<body>
+
+
+  <!-- ### MAIN ### -->
+  <div class="position-relative overflow-hidden p-3 p-md-5 text-center text-white imgBackGround">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+      <h1 class="display-4 font-weight-normal" id="homeTitle" style="text-shadow: 2px 2px #323232;">La rivoluzione del cinema</h1>
+      <p class="lead font-weight-normal" style="text-shadow: 2px 2px #323232;">Goditi i tuoi film preferiti su Epic Films! <br> Nuovi film in arrivo.</p>
+    </div>
+  </div>
+
+  <section id="blockHome">
+    <!--EPIC FILMS-->
+    <main>
+      <section class="container.fluid">
+        <div [ngSwitch]="selected">
+          <div *ngSwitchCase="'rent'">
+            <!-- <app-movie-list *ngIf="selected === 'list'"></app-movie-list> -->
+            <app-rent-movie *ngIf="selected === 'rent'"></app-rent-movie>
+          </div>
+          <div *ngSwitchCase="'detail'">
+            <app-movie-detail [movie]=selectedmovie></app-movie-detail>
+          </div>
+          <div *ngSwitchDefault>
+            <app-movie-list [movielist]="movies" (showmovie)="viewDetail($event)" (editmovie)="editDetail($event)">
+            </app-movie-list>
+            <!--  <app-movie-list *ngIf="selected === 'list'" [prova]='prova' (cambiaprovaparent)="cambiaparent($event)"></app-movie-list> -->
+          </div>
+          <div *ngSwitchCase="'edit'">
+            <app-edit-movie [movie]=selectedmovie (movieupdated)="updateMovie($event)"></app-edit-movie>
+          </div>
+        </div>
+
+      </section>
+    </main>
+    <div class="emptySpace"></div>
+  </section>
+</body>
+
+<!-- ### FOOTER ### -->
+<footer>
+  <div class="container pt-2 mt-3">
+    <p class="float-right">
+      <a href="#">Torna su</a>
+    </p>
+    <p>&copy; Film Space - tutti i diritti riservati</p>
+  </div>
+</footer>

@@ -1,0 +1,36 @@
+.imgBackGround {
+    background-image: url("../src/assets/images/filmBG.jpg");
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+    background-color: #141414;
+}
+
+.btn{
+    background-color: #14003f;
+    margin-left: 5px;
+}
+
+.btn:hover{
+    background-color: white;
+    color: black;
+}
+
+footer {
+    background-color: #14003f;
+    color: white;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+footer a {
+    color: black;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+

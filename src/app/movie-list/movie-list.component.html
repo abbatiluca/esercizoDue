@@ -1,0 +1,15 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+      <div *ngFor="let movie of movielist; let i = index;" class="card m-3" style="width: 18rem;">
+        <img [src]="movie.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{movie.title}}</h5>
+          <p class="card-text">{{movie.plot | slice: 0: 150}} [...] </p>
+          <a href="#" class="btn btn-primary" (click) = "viewDetail(movie.id)">View Details of {{movie.title}}</a>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary" (click) = "editDetail(movie.id)">Edit</a>
+        </div>
+      </div>
+    </div>
+</div>
